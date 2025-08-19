@@ -17,6 +17,7 @@ public class UIManager : MonoSingleton<UIManager> {
   [SerializeField] private Button optionsButton;
   [SerializeField] private Button mainMenuButton;
   [SerializeField] private Button rematchButton;
+  [SerializeField] private Button gameOverRematchButton;
   [SerializeField] private Button gameOverMainMenuButton;
   [SerializeField] private Canvas optionsUI;
   [SerializeField] private Button audioButton;
@@ -42,6 +43,11 @@ public class UIManager : MonoSingleton<UIManager> {
     });
 
     rematchButton.onClick.AddListener(() => {
+      Time.timeScale = 1f;
+      SceneLoader.LoadWithLoading(SceneType.GameScene);
+    });
+
+    gameOverRematchButton.onClick.AddListener(() => {
       Time.timeScale = 1f;
       SceneLoader.LoadWithLoading(SceneType.GameScene);
     });
